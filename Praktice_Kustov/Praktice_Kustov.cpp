@@ -37,10 +37,9 @@ vector<vector<int>> blurImage(const vector<vector<int>>& image) {
     return blurredImage;
 }
 
-int main()
-{
+int main() {
     setlocale(LC_ALL, "Russian");
-   
+
     int vvod = 0;
 
     while (true) {
@@ -53,7 +52,7 @@ int main()
         cin >> vvod;
 
         if (vvod == 1) { //тест использования функции АВТОМАТИЧЕСКИЙ
-            
+
             int N = 5; //размер матрицы
             vector<vector<int>> image = {
                 {10, 20, 30, 40, 50},
@@ -75,18 +74,44 @@ int main()
             }
             cout << endl;
         }
-        if (vvod == 2) { //тест использования функции РУЧНОЙ
+        if (vvod == 2) { // Ручная проверка
             cout << "Ручная проверка" << endl;
+            cout << "Введите размер матрицы (N): ";
+            int N;
+            cin >> N;
+
+            vector<vector<int>> image(N, vector<int>(N));
+
+            cout << "Введите значения матрицы:" << endl;
+            for (int i = 0; i < N; ++i) {
+                for (int j = 0; j < N; ++j) {
+                    cout << "Введите значение для пикселя [" << i << "][" << j << "]: ";
+                    cin >> image[i][j];
+                }
+            }
+
+            // Применяем функцию размытия
+            vector<vector<int>> blurredImage = blurImage(image);
+
+            // вывод размытого изображения
+            cout << "Размытие изображения:" << endl;
+            for (const auto& row : blurredImage) {
+                for (int pixel : row) {
+                    cout << pixel << " ";
+                }
+                cout << endl;
+            }
             cout << endl;
         }
         if (vvod == 0) {
-            return 0;
-        }
+                return 0;
+            }
         else {
-            cout << endl;
-            cout << "Введен несуществующий пункт меню, попробуйте снова" << endl;
-            cout << endl;
+                cout << endl;
+                cout << "Введен несуществующий пункт меню, попробуйте снова" << endl;
+                cout << endl;
+            }
         }
     }
-}
+
 
