@@ -30,11 +30,11 @@ vector<vector<int>> blurImage(const vector<vector<int>>& image) {
             }
 
             //новые среднее арифметическое значение пикселя
-            blurImage[i][j] = sum / count;
+            blurredImage[i][j] = sum / count;
         }
     }
 
-    return blurImage;
+    return blurredImage;
 }
 
 int main()
