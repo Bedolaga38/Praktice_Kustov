@@ -48,6 +48,7 @@ int main()
         cout << endl;
         cout << "1. Автоматическая проверка" << endl;
         cout << "2. Ручаная проверка" << endl;
+        cout << "0. Выход" << endl;
         cout << "Введите пункт, как провести проверку теста: ";
         cin >> vvod;
 
@@ -78,8 +79,14 @@ int main()
             cout << "Ручная проверка" << endl;
             cout << endl;
         }
-
-
+        if (vvod == 0) {
+            return 0;
+        }
+        else {
+            cout << endl;
+            cout << "Введен несуществующий пункт меню, попробуйте снова" << endl;
+            cout << endl;
+        }
     }
 }
 
