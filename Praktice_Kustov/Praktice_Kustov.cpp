@@ -5,7 +5,17 @@ using namespace std;
 
 // ЗАДАИНЕ: НАПИСАТЬ ФУНКЦИЮ РАЗМЫТИЯ ДЛЯ КАРТИНКИ (НАЙТИ СРЕДНЕЕ АРИФМЕТИЧЕСКОЕ)
 
-//функция для размытия изображения
+/*
+
+\bref blurImage
+
+Функция предназначена для рамытия изображения
+
+\param image - матрица
+
+*/
+
+
 vector<vector<int>> blurImage(const vector<vector<int>>& image) {
     int N = image.size(); //размер матрицы изображения
     vector<vector<int>> blurredImage(N, vector<int>(N, 0)); //матрица для хранения размытого изображения
@@ -37,11 +47,17 @@ vector<vector<int>> blurImage(const vector<vector<int>>& image) {
     return blurredImage;
 }
 
+/*
+
+\bref main
+
+Функция предназначена для рамытия изображения
+
+*/
+
 int main() {
     setlocale(LC_ALL, "Russian");
-
     int vvod = 0;
-
     while (true) {
         cout << "ЗАДАНИЕ: Создание функции размытия изображения" << endl;
         cout << endl;
@@ -50,9 +66,7 @@ int main() {
         cout << "0. Выход" << endl;
         cout << "Введите пункт, как провести проверку теста: ";
         cin >> vvod;
-
         if (vvod == 1) { //тест использования функции АВТОМАТИЧЕСКИЙ
-
             int N = 5; //размер матрицы
             vector<vector<int>> image = {
                 {10, 20, 30, 40, 50},
@@ -61,9 +75,7 @@ int main() {
                 {160, 170, 180, 190, 200},
                 {210, 220, 230, 240, 250},
             };
-
             vector<vector<int>> blurredImage = blurImage(image);
-
             //вывод размытого изображения
             for (const auto& row : blurredImage) {
                 for (int pixel : row) {
@@ -79,9 +91,7 @@ int main() {
             cout << "Введите размер матрицы (N): ";
             int N;
             cin >> N;
-
             vector<vector<int>> image(N, vector<int>(N));
-
             cout << "Введите значения матрицы:" << endl;
             for (int i = 0; i < N; ++i) {
                 for (int j = 0; j < N; ++j) {
@@ -89,10 +99,8 @@ int main() {
                     cin >> image[i][j];
                 }
             }
-
             // Применяем функцию размытия
             vector<vector<int>> blurredImage = blurImage(image);
-
             // вывод размытого изображения
             cout << "Размытие изображения:" << endl;
             for (const auto& row : blurredImage) {
